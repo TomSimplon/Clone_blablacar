@@ -1,0 +1,40 @@
+$gray-color: rgb(189, 187, 187);
+
+footer {
+  background-color: $gray-color;
+  padding: 20px;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .text-elements {
+      display: flex;
+      gap: 20px;
+
+      p {
+        color: #000000;
+      }
+    }
+
+    .social-media {
+      p {
+        color: #000000;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 10px;
+
+          img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
