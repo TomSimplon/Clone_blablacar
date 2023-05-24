@@ -5,3 +5,62 @@ body {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('route.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.content img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px #804d00;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin-top: 20px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.login-buttons .btn {
+  margin: 0 10px;
+  background-color: #28a745;
+}
+
+
+

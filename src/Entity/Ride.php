@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RideRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,18 @@ class Ride
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $ceated = null;
+
+    #[ORM\OneToMany(mappedBy: 'ride', targetEntity: User::class)]
+    private Collection $driver;
+
+    #[ORM\ManyToMany(targetEntity: User::class)]
+    private Collection $rules;
+
+    public function __construct()
+    {
+        $this->driver = new ArrayCollection();
+        $this->rules = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +119,60 @@ class Ride
     public function setCeated(\DateTimeInterface $ceated): self
     {
         $this->ceated = $ceated;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getDriver(): Collection
+    {
+        return $this->driver;
+    }
+
+    public function addDriver(User $driver): self
+    {
+        if (!$this->driver->contains($driver)) {
+            $this->driver->add($driver);
+            $driver->setRide($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDriver(User $driver): self
+    {
+        if ($this->driver->removeElement($driver)) {
+            // set the owning side to null (unless already changed)
+            if ($driver->getRide() === $this) {
+                $driver->setRide(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getRules(): Collection
+    {
+        return $this->rules;
+    }
+
+    public function addRule(User $rule): self
+    {
+        if (!$this->rules->contains($rule)) {
+            $this->rules->add($rule);
+        }
+
+        return $this;
+    }
+
+    public function removeRule(User $rule): self
+    {
+        $this->rules->removeElement($rule);
 
         return $this;
     }
