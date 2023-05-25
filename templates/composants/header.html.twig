@@ -1,17 +1,19 @@
 <header>
-<nav>
-    <div class="gauche">
-            <img src="{{ asset('images/kangourou.jpg') }}" alt="Symfony">
-        <div class="onglets">
-        <a href="../ride/homepage.html.twig">Retour aux annonces</a>
-        </div>
-    </div>
-    <div class="droite">
-        <form class="search-form">
-        <input type="text" placeholder="Rechercher...">
-        <button type="submit"><strong>OK</strong></button>
-        </form>
-        <a href=""><img src="{{ asset('images/user.png') }}" alt="Symfony"></a>
-    </div>
-</nav>
+	<nav>
+		<div class="gauche">
+			<img src="{{ asset('images/kangourou.jpg') }}" alt="Symfony">
+			<div class="onglets">
+				<a href="{{ path('app_ride') }}">Retour aux annonces</a>
+			</div>
+		</div>
+		<div class="droite">
+			<form class="search-form">
+				<input type="text" placeholder="Rechercher...">
+				<button type="submit">
+					<strong>OK</strong>
+				</button>
+			</form>
+			<a href=""><img src="{{ asset('images/user.png') }}" alt="Symfony"></a>
+		</div>
+	</nav>
 </header>
