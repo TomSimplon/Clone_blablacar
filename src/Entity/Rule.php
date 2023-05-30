@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RuleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RuleRepository::class)]
@@ -22,6 +24,14 @@ class Rule
     #[ORM\ManyToOne(inversedBy: 'rules')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
+
+    #[ORM\ManyToMany(targetEntity: Ride::class, inversedBy: 'rules')]
+    private Collection $rides;
+
+    public function __construct()
+    {
+        $this->rides = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +70,30 @@ class Rule
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ride>
+     */
+    public function getRides(): Collection
+    {
+        return $this->rides;
+    }
+
+    public function addRide(Ride $ride): self
+    {
+        if (!$this->rides->contains($ride)) {
+            $this->rides->add($ride);
+        }
+
+        return $this;
+    }
+
+    public function removeRide(Ride $ride): self
+    {
+        $this->rides->removeElement($ride);
 
         return $this;
     }

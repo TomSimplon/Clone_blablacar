@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des annonces
+{% endblock %}
+
+{% block body %}
+	{%include "composants/header.html.twig"%}
+
+	<section class="page">
+		<div class="block">
+			<h2>Date du trajet</h2>
+			<div class="contenu">
+				<div class="left">
+					<p>Départ : Grenoble</p>
+					<p>Arrivée : Chambéry</p>
+					<div class="user">
+						<img src="{{ asset('images/user.png') }}" alt="">
+						<p>Christopher</p>
+						<div class="cardGrade">
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="false"></i>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<p>10€</p>
+					<button class="btn">Voir plus</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="block">
+			<h2>Date du trajet</h2>
+			<div class="contenu">
+				<div class="left">
+					<p>Départ : Lyon</p>
+					<p>Arrivée : Paris</p>
+					<div class="user">
+						<img src="{{ asset('images/user.png') }}" alt="">
+						<p>Eliott</p>
+						<div class="cardGrade">
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="false"></i>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<p>20€</p>
+					<button class="btn">Voir plus</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="block">
+			<h2>Date du trajet</h2>
+			<div class="contenu">
+				<div class="left">
+					<p>Départ : Gap</p>
+					<p>Arrivée : Nice</p>
+					<div class="user">
+						<img src="{{ asset('images/user.png') }}" alt="">
+						<p>Jésus</p>
+						<div class="cardGrade">
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="true"></i>
+							<i class="fas fa-star icon" data-active="false"></i>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<p>30€</p>
+					<button class="btn">Voir plus</button>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

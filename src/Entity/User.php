@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $last_name = null;
 
     #[ORM\Column]
-    private ?int $phone = null;
+    private ?string $phone = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $created = null;
@@ -48,14 +48,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Car::class)]
     private Collection $cars;
 
-    #[ORM\ManyToOne(inversedBy: 'driver')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Ride $ride = null;
+    #[ORM\OneToMany(mappedBy: 'driver', targetEntity: Ride::class)]
+    private Collection $rides;
+
+
 
     public function __construct()
     {
         $this->rules = new ArrayCollection();
         $this->cars = new ArrayCollection();
+        $this->rides = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,12 +154,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(int $phone): self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
@@ -236,15 +238,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getRide(): ?Ride
+    /**
+     * @return Collection<int, Ride>
+     */
+    public function getRides(): Collection
     {
-        return $this->ride;
+        return $this->rides;
     }
 
-    public function setRide(?Ride $ride): self
+    public function addRide(Ride $ride): self
     {
-        $this->ride = $ride;
+        if (!$this->rides->contains($ride)) {
+            $this->rides->add($ride);
+            $ride->setDriver($this);
+        }
 
         return $this;
     }
+
+    public function removeRide(Ride $ride): self
+    {
+        if ($this->rides->removeElement($ride)) {
+            // set the owning side to null (unless already changed)
+            if ($ride->getDriver() === $this) {
+                $ride->setDriver(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
 }

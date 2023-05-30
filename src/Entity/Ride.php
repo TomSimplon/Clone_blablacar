@@ -34,17 +34,22 @@ class Ride
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $ceated = null;
 
-    #[ORM\OneToMany(mappedBy: 'ride', targetEntity: User::class)]
-    private Collection $driver;
 
-    #[ORM\ManyToMany(targetEntity: User::class)]
+   
+
+    #[ORM\ManyToOne(inversedBy: 'rides')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $driver = null;
+
+    #[ORM\ManyToMany(targetEntity: Rule::class, mappedBy: 'rides')]
     private Collection $rules;
 
     public function __construct()
     {
-        $this->driver = new ArrayCollection();
         $this->rules = new ArrayCollection();
     }
+
+   
 
     public function getId(): ?int
     {
@@ -126,53 +131,49 @@ class Ride
     /**
      * @return Collection<int, User>
      */
-    public function getDriver(): Collection
+   
+
+   
+
+   
+
+    
+
+    public function getDriver(): ?User
     {
         return $this->driver;
     }
 
-    public function addDriver(User $driver): self
+    public function setDriver(?User $driver): self
     {
-        if (!$this->driver->contains($driver)) {
-            $this->driver->add($driver);
-            $driver->setRide($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDriver(User $driver): self
-    {
-        if ($this->driver->removeElement($driver)) {
-            // set the owning side to null (unless already changed)
-            if ($driver->getRide() === $this) {
-                $driver->setRide(null);
-            }
-        }
+        $this->driver = $driver;
 
         return $this;
     }
 
     /**
-     * @return Collection<int, User>
+     * @return Collection<int, Rule>
      */
     public function getRules(): Collection
     {
         return $this->rules;
     }
 
-    public function addRule(User $rule): self
+    public function addRule(Rule $rule): self
     {
         if (!$this->rules->contains($rule)) {
             $this->rules->add($rule);
+            $rule->addRide($this);
         }
 
         return $this;
     }
 
-    public function removeRule(User $rule): self
+    public function removeRule(Rule $rule): self
     {
-        $this->rules->removeElement($rule);
+        if ($this->rules->removeElement($rule)) {
+            $rule->removeRide($this);
+        }
 
         return $this;
     }

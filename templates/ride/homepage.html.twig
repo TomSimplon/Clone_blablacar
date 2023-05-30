@@ -9,8 +9,10 @@
 		<div class="content">
 			<img src="{{ asset('images/kangourou.jpg') }}" alt="">
 			<h1 class="welcome-text">Bienvenue cher voyageur chez kangouroute ! 
-				       Pour consulter les annonces, s’inscrire, se connecter, c’est juste en dessous, et roule ma poule !</h1>
-			<button class="btn">Consulter les annonces</button>
+																       Pour consulter les annonces, s’inscrire, se connecter, c’est juste en dessous, et roule ma poule !</h1>
+			<a href="{{ path('annonce') }}">
+				<button class="btn">Consulter les annonces</button>
+			</a>
 			<div class="login-buttons">
 				<button class="btn">Connexion</button>
 				<button class="btn">Inscription</button>
