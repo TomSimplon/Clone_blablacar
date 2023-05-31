@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details de l'annonce
+{% endblock %}
+
+{% block body %}
+	{%include "composants/header.html.twig"%}
+	<section id="details" class="details">
+		<div class="contenu">
+			<div class="left">
+				<p style="color:#838080" ;>Départ :
+					{{ ride.departure }}</p>
+				<p style="color:#838080" ;>Arrivée :
+					{{ ride.destination }}</p>
+				<p>{{ ride.price }}
+					€</p>
+				<p>{{ ride.seats }}
+					places disponibles</p>
+				<p>Peugeot 2008 Noir</p>
+				<div class="rules">
+					<div class="picture">
+						<div class="cigarette">
+							<img src="{{ asset('images/cigarette.png') }}">
+							{% for rule in ride.rules %}
+								<p>{{rule.name}}</p>
+							{% endfor %}
+						</div>
+						<div class="musique">
+							<img src="{{ asset('images/musical-note.png') }}">
+							{% for rule in ride.rules %}
+								<p>{{rule.description}}</p>
+							{% endfor %}
+						</div>
+						<div class="speak">
+							<img src="{{ asset('images/speak.png') }}">
+							{% for rule in ride.rules %}
+								<p>{{rule.name}}</p>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<p>{{ ride.date|date("m/d/Y") }}</p>
+				<p>{{ride.driver.firstName}}</p>
+				<img src="{{ asset('images/user.png') }}">
+				<div class="cardGrade">
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="false"></i>
+				</div>
+				<button class="reserve">Réserver l'annonce</button>
+				<button class="edit">Editez votre annonce</button>
+				<button class="delete">Supprimez votre annonce</button>
+			</div>
+		</div>
+	</section>
+{% endblock %}

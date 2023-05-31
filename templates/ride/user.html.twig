@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page utilisateur
+{% endblock %}
+
+{% block body %}
+	{%include "composants/header.html.twig"%}
+	<section id="infos" class="infos">
+		<div class="character">
+			<div class="left">
+				<img src="">
+				<div class="text">
+					<p>Tom</p>
+					<p>23 ans</p>
+				</div>
+			</div>
+			<div class="right">
+				<div class="cardGrade">
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="true"></i>
+					<i class="fas fa-star icon" data-active="false"></i>
+				</div>
+			</div>
+			<div>
+				<button>Modifier les informations personnelles</button>
+				<button>Ajouter une annonce</button>
+			</div>
+		</div>
+	</section>
+{% endblock %}

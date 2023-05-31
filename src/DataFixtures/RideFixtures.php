@@ -26,7 +26,7 @@ class RideFixtures extends AbstractFixtures implements DependentFixtureInterface
             $Ride->setPrice($this->faker->randomFloat(2, 10, 100));
             $Ride->setDate(new \DateTime());
             // Pour définir la catégorie en relation avec mon produit j'utilise la méthode getReference
-			$Ride->setDriver($this->getReference("user_" . $this->faker->numberBetween(0, 9)));
+            $Ride->setDriver($this->getReference("user_" . $this->faker->numberBetween(0, 9)));
             $Ride->setCeated(new \DateTime());
 
             for($o = 0; $o < 3; $o++) {
