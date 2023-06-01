@@ -4,8 +4,8 @@
 			<img src="{{ asset('images/kangourou.jpg') }}" alt="Symfony">
 			<div class="onglets">
 				<a href="{{ path('annonce') }}">Retour aux annonces</a>
-				<a href="">Se connecter</a>
-				<a href="">S'inscrire</a>
+				<a href="{{ path('app_login') }}">Se connecter</a>
+				<a href="{{ path('app_register') }}">S'inscrire</a>
 			</div>
 		</div>
 		<div class="droite">
@@ -15,7 +15,7 @@
 					<strong>OK</strong>
 				</button>
 			</form>
-			<a href=""><img src="{{ asset('images/user.png') }}" alt="Symfony"></a>
+			<a href="{{ path('user') }}"><img src="{{ asset('images/user.png') }}" alt="Symfony"></a>
 		</div>
 	</nav>
 </header>

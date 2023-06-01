@@ -47,7 +47,7 @@ class RideController extends AbstractController
     ]);
 }
 
-#[Route('/user', name: 'user')]
+#[Route('/ride/user', name: 'user')]
     public function user(): Response
     {
         return $this->render('ride/user.html.twig', [

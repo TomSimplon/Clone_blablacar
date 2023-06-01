@@ -1,0 +1,60 @@
+#infos {
+    padding: 0;
+    margin: 0;
+    background: white;
+
+    .character {
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+
+        .left {
+            display: flex;
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .text {
+                padding-left: 20px;
+                font-weight: bold;
+            }
+        }
+
+        .right {
+                
+                .cardGrade {
+                display: flex; 
+                align-self: flex-start; 
+                margin-top: 20px;
+                margin-left: 50px;
+  
+                .icon[data-active=true] {
+                color: #eeff00;
+                }
+  
+                .icon[data-active=false] {
+                color: #504e4e;
+                }
+              }
+        }
+    }
+
+    .btn {
+          display: flex;
+          justify-content: center;
+
+          a {
+            font-size: 25px;
+            color: deepskyblue;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 25px;
+          }
+
+          .deconnexion {
+            color: red;
+          }
+    }
+}

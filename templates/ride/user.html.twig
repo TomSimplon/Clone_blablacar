@@ -8,7 +8,7 @@
 	<section id="infos" class="infos">
 		<div class="character">
 			<div class="left">
-				<img src="">
+				<img src="{{ asset('images/user.png') }}">
 				<div class="text">
 					<p>Tom</p>
 					<p>23 ans</p>
@@ -23,10 +23,11 @@
 					<i class="fas fa-star icon" data-active="false"></i>
 				</div>
 			</div>
-			<div>
-				<button>Modifier les informations personnelles</button>
-				<button>Ajouter une annonce</button>
-			</div>
+		</div>
+		<div class="btn">
+			<a class="edit_infos" href="">Modifier les informations personnelles</a>
+			<a class="edit_ride" href="">Ajouter une annonce</a>
+			<a class="deconnexion" href="{{ path('app_logout') }}">Se déconnecter</a>
 		</div>
 	</section>
 {% endblock %}

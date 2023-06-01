@@ -12,6 +12,7 @@ import './styles/footer.scss';
 import './styles/annonce.scss';
 import './styles/details.scss';
 import './styles/user.scss';
-
+import './styles/login.scss';
+import './styles/register.scss';
 // start the Stimulus application
 // import './bootstrap';

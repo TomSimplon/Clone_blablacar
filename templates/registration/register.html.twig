@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+{% include "composants/header.html.twig" %}
+<section id="register" class="register">
+	<form method="post">
+		<h1>S'inscrire</h1>
+
+		{{ form_start(registrationForm) }}
+
+		{{ form_label(registrationForm.email, 'Email') }}
+		{{ form_widget(registrationForm.email) }}
+		{{ form_help(registrationForm.email) }}
+		{{ form_errors(registrationForm.email) }}
+
+		{{ form_label(registrationForm.first_name, 'Prénom') }}
+		{{ form_widget(registrationForm.first_name) }}
+		{{ form_help(registrationForm.first_name) }}
+		{{ form_errors(registrationForm.first_name) }}
+
+		{{ form_label(registrationForm.last_name, 'Nom') }}
+		{{ form_widget(registrationForm.last_name) }}
+		{{ form_help(registrationForm.last_name) }}
+		{{ form_errors(registrationForm.last_name) }}
+
+		{{ form_label(registrationForm.phone, 'Téléphone') }}
+		{{ form_widget(registrationForm.phone) }}
+		{{ form_help(registrationForm.phone) }}
+		{{ form_errors(registrationForm.phone) }}
+
+		{{ form_label(registrationForm.plainPassword, 'Mot de passe') }}
+		{{ form_widget(registrationForm.plainPassword) }}
+		{{ form_help(registrationForm.plainPassword) }}
+		{{ form_errors(registrationForm.plainPassword) }}
+
+		{{ form_label(registrationForm.agreeTerms, 'J\'accepte les termes et conditions') }}
+		{{ form_widget(registrationForm.agreeTerms) }}
+		{{ form_help(registrationForm.agreeTerms) }}
+		{{ form_errors(registrationForm.agreeTerms) }}
+
+            <button type="submit" class="btn">Envoyer</button>
+            {{ form_end(registrationForm) }}
+        </form>
+    </section>
+{% endblock %}
