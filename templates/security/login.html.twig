@@ -14,7 +14,7 @@
 			{% if app.user %}
 				<div class="mb-3">
 					Vous êtes maintenant connecté
-					{{ app.user.userIdentifier }}
+					{{ app.user.userIdentifier|default('') }}
 				</div>
 			{% endif %}
 

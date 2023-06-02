@@ -19,6 +19,7 @@
             .text {
                 padding-left: 20px;
                 font-weight: bold;
+                font-size: 25px;
             }
         }
 
@@ -27,7 +28,7 @@
                 .cardGrade {
                 display: flex; 
                 align-self: flex-start; 
-                margin-top: 20px;
+                margin-top: 30px;
                 margin-left: 50px;
   
                 .icon[data-active=true] {

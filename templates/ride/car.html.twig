@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %} Ajouter une voiture
+	{{ page_title }}
+{% endblock %}
+
+{% block body %}
+{% include "composants/header.html.twig" %}
+<section id="car" class="car">
+<form method="post">
+		<h1>Ajouter une voiture</h1>
+
+		{{ form_start(form) }}
+
+		{{ form_label(form.brand, 'Marque') }}
+		{{ form_widget(form.brand) }}
+		{{ form_help(form.brand) }}
+		{{ form_errors(form.brand) }}
+
+		{{ form_label(form.model, 'Modèle') }}
+		{{ form_widget(form.model) }}
+		{{ form_help(form.model) }}
+		{{ form_errors(form.model) }}
+
+		{{ form_label(form.seats, 'Sièges') }}
+		{{ form_widget(form.seats) }}
+		{{ form_help(form.seats) }}
+		{{ form_errors(form.seats) }}
+
+		{{ form_label(form.owner, 'Propriétaire') }}
+		{{ form_widget(form.owner) }}
+		{{ form_help(form.owner) }}
+		{{ form_errors(form.owner) }}
+
+            <button type="submit" class="btn">Envoyer</button>
+            {{ form_end(form) }}
+        </form>
+</section>
+{% endblock %}
