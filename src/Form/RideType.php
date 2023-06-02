@@ -2,29 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\Rule;
+use App\Entity\Ride;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RuleType extends AbstractType
+class RideType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('author')
-            // ->add('rides')
+            ->add('departure')
+            ->add('destination')
+            ->add('seats')
+            ->add('price')
+            ->add('date')
+            ->add('driver')
+            ->add('rules')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Rule::class,
+            'data_class' => Ride::class,
         ]);
     }
-
-    
 }

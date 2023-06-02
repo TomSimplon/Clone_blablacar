@@ -16,5 +16,6 @@ import './styles/login.scss';
 import './styles/register.scss';
 import './styles/car.scss';
 import './styles/rule.scss';
+import './styles/ride.scss';
 // start the Stimulus application
 // import './bootstrap';
