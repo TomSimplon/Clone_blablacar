@@ -17,10 +17,10 @@ class RideType extends AbstractType
             ->add('seats')
             ->add('price')
             ->add('date')
-            ->add('driver')
             ->add('rules')
         ;
     }
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {

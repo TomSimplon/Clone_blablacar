@@ -17,31 +17,44 @@
 				<p>{{ ride.seats }}
 					places disponibles</p>
 				<p>Peugeot 2008 Noir</p>
+				{# <div class="rules">
+													<div class="picture">
+														<div class="cigarette">
+															<img src="{{ asset('images/cigarette.png') }}">
+															{% for rule in ride.rules %}
+																<p>{{rule.description}}</p>
+															{% endfor %}
+														</div>
+														<div class="musique">
+															<img src="{{ asset('images/musical-note.png') }}">
+															{% for rule in ride.rules %}
+																<p>{{rule.description}}</p>
+															{% endfor %}
+														</div>
+														<div class="speak">
+															<img src="{{ asset('images/speak.png') }}">
+															{% for rule in ride.rules %}
+																<p>{{rule.description}}</p>
+															{% endfor %}
+														</div>
+													</div>
+												</div> #}
+
 				<div class="rules">
 					<div class="picture">
-						<div class="cigarette">
-							<img src="{{ asset('images/cigarette.png') }}">
-							{% for rule in ride.rules %}
-								<p>{{rule.name}}</p>
-							{% endfor %}
-						</div>
-						<div class="musique">
-							<img src="{{ asset('images/musical-note.png') }}">
-							{% for rule in ride.rules %}
-								<p>{{rule.description}}</p>
-							{% endfor %}
-						</div>
-						<div class="speak">
-							<img src="{{ asset('images/speak.png') }}">
-							{% for rule in ride.rules %}
-								<p>{{rule.name}}</p>
-							{% endfor %}
-						</div>
+						<img src="{{ asset('images/cigarette.png') }}">
+						<img src="{{ asset('images/musical-note.png') }}">
+						<img src="{{ asset('images/speak.png') }}">
+					</div>
+					<div class="rule">
+						{% for rule in ride.rules %}
+							<p>{{rule.description}}</p>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
 			<div class="right">
-				<p>{{ ride.date|date("m/d/Y") }}</p>
+				<p>{{ ride.date|date("d/m/Y") }}</p>
 				<p>{{ride.driver.firstName}}</p>
 				<img src="{{ asset('images/user.png') }}">
 				<div class="cardGrade">

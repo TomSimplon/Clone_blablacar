@@ -41,21 +41,17 @@
                             height: 40px;
                             padding: 10px;
                         }
-
-                        p {
-                            padding-left: 10px;
-                        }
-
-                        .cigarette {
-                            display: flex;
-                        }
-                        .musique {
-                            display: flex;
-                        }
-                        .speak {
-                            display: flex;
-                        }
                     }
+
+                    .rule {
+                            display: flex;
+                            flex-direction: column;
+                            padding-left: 10px;
+
+                            p {
+                            padding-bottom: 10px;
+                            }
+                        }
                 }
             }
 

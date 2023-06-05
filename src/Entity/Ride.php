@@ -41,7 +41,7 @@ class Ride
     #[ORM\JoinColumn(nullable: false)]
     private ?User $driver = null;
 
-    #[ORM\ManyToMany(targetEntity: Rule::class, mappedBy: 'rides')]
+    #[ORM\ManyToMany(targetEntity: Rule::class, inversedBy: 'rides')]
     private Collection $rules;
 
     public function __construct()

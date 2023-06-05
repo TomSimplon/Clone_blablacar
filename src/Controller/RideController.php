@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ride;
+use App\Entity\Rule;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +24,7 @@ class RideController extends AbstractController
     public function annonce(EntityManagerInterface $entityManager): Response
     {
         $ridesRepository = $entityManager->getRepository(Ride::class);
-        $rides = $ridesRepository->findAll();
+        $rides = $ridesRepository->findBy([], ['id' => 'DESC']);
 
          return $this->render('ride/annonce.html.twig', [
             'controller_name' => 'RideController',
@@ -46,6 +47,7 @@ class RideController extends AbstractController
         'ride' => $ride
     ]);
 }
+
 
 #[Route('/ride/user', name: 'user')]
     public function user(): Response

@@ -10,7 +10,9 @@
 			<div class="left">
 				<img src="{{ asset('images/user.png') }}">
 				<div class="text">
-					<p>Tom</p>
+					{% if app.user %}
+						<p>{{ app.user.firstName|default('') }}</p>
+					{% endif %}
 				</div>
 			</div>
 			<div class="right">
@@ -25,7 +27,7 @@
 		</div>
 		<div class="btn">
 			<a class="edit_infos" href="">Modifier les informations personnelles</a>
-			<a class="edit_ride" href="">Ajouter une annonce</a>
+			<a class="edit_ride" href="{{ path('app_ride') }}">Ajouter une annonce</a>
 			<a class="deconnexion" href="{{ path('app_logout') }}">Se déconnecter</a>
 		</div>
 	</section>
