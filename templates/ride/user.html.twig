@@ -4,35 +4,70 @@
 {% endblock %}
 
 {% block body %}
-{% if app.user %}
-	{%include "composants/header.html.twig"%}
-	<section id="infos" class="infos">
-		<div class="character">
-			<div class="left">
-				<img src="{{ asset('images/user.png') }}">
-				<div class="text">
-					{% if app.user %}
-						<p>{{ app.user.firstName|default('') }}</p>
-					{% endif %}
+	{% if app.user %}
+		{%include "composants/header.html.twig"%}
+		<section id="infos" class="infos">
+			<div class="character">
+				<div class="left">
+					<img src="{{ asset('images/user.png') }}">
+					<div class="text">
+						{% if app.user %}
+							<p>{{ app.user.firstName|default('') }}</p>
+						{% endif %}
+					</div>
+				</div>
+				<div class="right">
+					<div class="cardGrade">
+						<i class="fas fa-star icon" data-active="true"></i>
+						<i class="fas fa-star icon" data-active="true"></i>
+						<i class="fas fa-star icon" data-active="true"></i>
+						<i class="fas fa-star icon" data-active="true"></i>
+						<i class="fas fa-star icon" data-active="false"></i>
+					</div>
 				</div>
 			</div>
-			<div class="right">
-				<div class="cardGrade">
-					<i class="fas fa-star icon" data-active="true"></i>
-					<i class="fas fa-star icon" data-active="true"></i>
-					<i class="fas fa-star icon" data-active="true"></i>
-					<i class="fas fa-star icon" data-active="true"></i>
-					<i class="fas fa-star icon" data-active="false"></i>
-				</div>
+			<div class="btn">
+				<a class="edit_infos" href="{{ path('app_user') }}">Modifier les informations personnelles</a>
+				<a class="edit_ride" href="{{ path('app_ride') }}">Ajouter une annonce</a>
+				<a class="deconnexion" href="{{ path('app_logout') }}">Se déconnecter</a>
 			</div>
-		</div>
-		<div class="btn">
-			<a class="edit_infos" href="{{ path('app_user') }}">Modifier les informations personnelles</a>
-			<a class="edit_ride" href="{{ path('app_ride') }}">Ajouter une annonce</a>
-			<a class="deconnexion" href="{{ path('app_logout') }}">Se déconnecter</a>
-		</div>
-	</section>
+		</section>
+
+		<section id="règles" class="règles">
+			<h1>A propos de vous<h1>
+					<div class="rules">
+						<div class="picture">
+							<img src="{{ asset('images/speak.png') }}">
+							<img src="{{ asset('images/musical-note.png') }}">
+							<img src="{{ asset('images/cigarette.png') }}">
+							<img src="{{ asset('images/animal.png') }}">
+						</div>
+						<div class="rule">
+						        <div class="règle">
+								<p>J'aime bien discuter quand je me sens à l'aise</p>
+								<a class="edit_rule" href="">Modifier</a>
+								</div>
+
+								<div class="règle">
+								<p>Pas de musique dans la voiture</p>
+								<a class="edit_rule" href="">Modifier</a>
+								</div>
+
+                                <div class="règle">
+								<p>Pas de cigarette dans la voiture</p>
+								<a class="edit_rule" href="">Modifier</a>
+								</div>
+
+								<div class="règle">
+								<p>Je peux voyager avec des animaux domestiques</p>
+								<a class="edit_rule" href="">Modifier</a>
+								</div>
+						</div>
+					</div>
+		</section>
+
 	{% else %}
-        <p>Vous devez être connecté pour accéder à cette page</p>
-    {% endif %}
+		<p>Vous devez être connecté pour accéder à cette page</p>
+	{% endif %}
 {% endblock %}
+
