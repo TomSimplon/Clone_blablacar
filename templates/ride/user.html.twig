@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+{% if app.user %}
 	{%include "composants/header.html.twig"%}
 	<section id="infos" class="infos">
 		<div class="character">
@@ -26,9 +27,12 @@
 			</div>
 		</div>
 		<div class="btn">
-			<a class="edit_infos" href="">Modifier les informations personnelles</a>
+			<a class="edit_infos" href="{{ path('app_user') }}">Modifier les informations personnelles</a>
 			<a class="edit_ride" href="{{ path('app_ride') }}">Ajouter une annonce</a>
 			<a class="deconnexion" href="{{ path('app_logout') }}">Se déconnecter</a>
 		</div>
 	</section>
+	{% else %}
+        <p>Vous devez être connecté pour accéder à cette page</p>
+    {% endif %}
 {% endblock %}

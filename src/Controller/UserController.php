@@ -30,11 +30,14 @@ class UserController extends AbstractController
             $user->setCreated(new \DateTime());
             $entityManagerInterface->persist($user);
             $entityManagerInterface->flush();
+
+            return $this->redirectToRoute('user');
             // Exécuter la logique que vous souhaitez
 						// par exemple enregistrer la nouvelle entité en base de données
 
         }
-
+        
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('ride/UserForm.html.twig', [
             'form' => $form
         ]);

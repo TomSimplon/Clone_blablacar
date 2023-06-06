@@ -42,12 +42,15 @@ class RidesController extends AbstractController
             $ride->setDriver($user);
             $entityManagerInterface->persist($ride);
             $entityManagerInterface->flush();
+
+            return $this->redirectToRoute('annonce');
   
             // Exécuter la logique que vous souhaitez
 						// par exemple enregistrer la nouvelle entité en base de données
 
         }
-
+        
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('ride/ride.html.twig', [
             'form' => $form
         ]);
@@ -63,5 +66,32 @@ class RidesController extends AbstractController
         'rules' => $rules,
     ]);
   }
+
+  #[Route('/ride/delete/{id}', name: 'ride_delete')]
+public function delete(Ride $ride, EntityManagerInterface $entityManager): Response
+{
+    $entityManager->remove($ride);
+    $entityManager->flush();
+
+    return $this->redirectToRoute('annonce');
+}
+
+#[Route('/ride/edit/{id}', name: 'ride_edit')]
+public function edit(Ride $ride, Request $request, EntityManagerInterface $entityManager): Response
+{
+    $form = $this->createForm(RideType::class, $ride);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->flush();
+
+        // Redirigez l'utilisateur vers la page de détails de l'annonce ou toute autre page appropriée
+        return $this->redirectToRoute('details', ['id' => $ride->getId()]);
+    }
+
+    return $this->render('ride/ride.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
 
 }

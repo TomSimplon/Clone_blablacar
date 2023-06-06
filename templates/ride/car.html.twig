@@ -5,10 +5,11 @@
 {% endblock %}
 
 {% block body %}
+{% if app.user %}
 {% include "composants/header.html.twig" %}
 <section id="car" class="car">
 <form method="post">
-		<h1>Ajouter une voiture</h1>
+		<h1>Ajouter/modifier une voiture</h1>
 
 		{{ form_start(form) }}
 
@@ -27,13 +28,11 @@
 		{{ form_help(form.seats) }}
 		{{ form_errors(form.seats) }}
 
-		{{ form_label(form.owner, 'Propriétaire') }}
-		{{ form_widget(form.owner) }}
-		{{ form_help(form.owner) }}
-		{{ form_errors(form.owner) }}
-
             <button type="submit" class="btn">Envoyer</button>
             {{ form_end(form) }}
         </form>
 </section>
+{% else %}
+        <p>Vous devez être connecté pour accéder à cette page</p>
+    {% endif %}
 {% endblock %}

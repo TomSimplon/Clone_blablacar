@@ -45,16 +45,18 @@ class RideController extends AbstractController
     return $this->render('ride/details.html.twig', [
         'controller_name' => 'RideController',
         'ride' => $ride
-    ]);
-}
+        ]);
+    }
 
 
 #[Route('/ride/user', name: 'user')]
     public function user(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('ride/user.html.twig', [
             'controller_name' => 'RideController',
         ]);
     }
+
     
 }

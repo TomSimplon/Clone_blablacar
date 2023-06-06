@@ -6,10 +6,11 @@
 {% endblock %}
 
 {% block body %}
+{% if app.user %}
 	{% include "composants/header.html.twig" %}
 	<section id="rule" class="rule">
 		<form method="post">
-			<h1>Ajouter une règle</h1>
+			<h1>Ajouter/modifier une règle</h1>
 
 			{{ form_start(form) }}
 
@@ -23,18 +24,11 @@
 			{{ form_help(form.description) }}
 			{{ form_errors(form.description) }}
 
-			{{ form_label(form.author, 'Auteur') }}
-			{{ form_widget(form.author) }}
-			{{ form_help(form.author) }}
-			{{ form_errors(form.author) }}
-
-			{# {{ form_label(form.rides, 'Annonce') }}
-									{{ form_widget(form.rides) }}
-									{{ form_help(form.rides) }}
-									{{ form_errors(form.rides) }} #}
-
 			<button type="submit" class="btn">Envoyer</button>
 			{{ form_end(form) }}
 		</form>
 	</section>
+	{% else %}
+        <p>Vous devez être connecté pour accéder à cette page</p>
+    {% endif %}
 {% endblock %}

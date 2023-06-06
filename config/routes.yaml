@@ -3,3 +3,10 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+ride_delete:
+    path: /ride/delete/{id}
+    controller: App\Controller\RidesController::delete
+ride_edit:
+    path: /ride/edit/{id}
+    controller: App\Controller\RidesController::edit
