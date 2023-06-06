@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %} Ajouter un utilisateur
+	{{ page_title }}
+{% endblock %}
+
+{% block body %}
+{% include "composants/header.html.twig" %}
+<section id="userForm" class="userForm">
+<form method="post">
+		<h1>Ajouter un utilisateur</h1>
+
+		{{ form_start(form) }}
+
+		{{ form_label(form.email, 'Email') }}
+		{{ form_widget(form.email) }}
+		{{ form_help(form.email) }}
+		{{ form_errors(form.email) }}
+
+		{{ form_label(form.password, 'Mot de passe') }}
+		{{ form_widget(form.password) }}
+		{{ form_help(form.password) }}
+		{{ form_errors(form.password) }}
+
+		{{ form_label(form.first_name, 'Prénom') }}
+		{{ form_widget(form.first_name) }}
+		{{ form_help(form.first_name) }}
+		{{ form_errors(form.first_name) }}
+
+		{{ form_label(form.last_name, 'Nom') }}
+		{{ form_widget(form.last_name) }}
+		{{ form_help(form.last_name) }}
+		{{ form_errors(form.last_name) }}
+
+		{{ form_label(form.phone, 'Téléphone') }}
+		{{ form_widget(form.phone) }}
+		{{ form_help(form.phone) }}
+		{{ form_errors(form.phone) }}
+
+            <button type="submit" class="btn">Envoyer</button>
+            {{ form_end(form) }}
+        </form>
+</section>
+{% endblock %}
