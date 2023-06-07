@@ -228,3 +228,174 @@
             }
   }
 }
+
+#réservations {
+  padding: 0;
+  background: white;
+  border-bottom: #504e4e 2px solid;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+    h1 {
+    text-align: center;
+    padding-top: 30px;
+  } 
+
+  .contenu {
+            background-color: white;
+            padding: 20px;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+
+            .left {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                p {
+                  font-size: 17px;
+                }
+
+                .rules {
+                    display: flex;
+
+                    .picture {
+                        display: flex;
+                        flex-direction: column;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            padding: 10px;
+                        }
+                    }
+
+                    .rule {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            padding-left: 10px;
+
+                            p {
+                            padding-bottom: 10px;
+                            }
+                        }
+                }
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                padding-left: 100px;
+                align-items: flex-start;
+
+                p {
+                    font-weight: bold;
+                }
+
+                img {
+                width: 80px;
+                height: 80px;
+                }
+
+                .cardGrade {
+                display: flex; 
+                align-self: flex-start; 
+                margin-top: 20px;
+  
+                .icon[data-active=true] {
+                color: #eeff00;
+                }
+  
+                .icon[data-active=false] {
+                color: #504e4e;
+                }
+               }
+
+                .delete {
+                    font-size: 20px;
+                    border: none;
+                    padding-top: 10px;
+                    font-weight: bold;
+                    background-color: white;
+                    color:red;
+                }
+
+                button {
+                    margin: 20px;
+                    cursor: pointer;
+                }
+            }
+  }
+}
+
+#voitures {
+  padding: 0;
+  margin-top: -20px;
+  background: white;
+  border-bottom: #504e4e 2px solid;
+  width: 100%;
+
+  h1 {
+    text-align: center;
+    padding-top: 30px;
+  }
+
+.contenu {
+    display: flex;
+    justify-content: center;
+
+    .list {
+    display: flex;
+    flex-direction: column; /* Aligner les éléments en colonne */
+
+    .car {
+    display: flex;
+    align-items: center; /* Aligner les éléments au centre */
+    margin-bottom: 10px; /* Espacement entre les éléments */
+
+    p {
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+
+      button {
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+        background-color: white;
+        color: #007bff;
+        cursor: pointer;
+      }
+     }
+    }
+   }
+
+   .carForm {
+    margin-left: 100px;
+    margin-top: 15px;
+    
+    a {
+      text-decoration: none;
+
+      button {
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+        background-color: white;
+        color: #007bff;
+        cursor: pointer;
+      }
+    }
+   }
+  }
+}
+
+
+

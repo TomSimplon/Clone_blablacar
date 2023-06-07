@@ -74,7 +74,7 @@
 									<p style="color:#838080" ;>Arrivée : Chambéry</p>
 									<p>18€</p>
 									<p>4 places disponibles</p>
-									<p>Peugeot 2008 Noir</p>
+									<p>Peugeot 2008 noir</p>
 									<div class="rules">
 										<div class="picture">
 											<img src="{{ asset('images/cigarette.png') }}">
@@ -90,7 +90,7 @@
 								</div>
 								<div class="right">
 									<p>07/06/2023</p>
-									<p>Noah</p>
+									<p>Christopher</p>
 									<img src="{{ asset('images/user.png') }}">
 									<div class="cardGrade">
 										<i class="fas fa-star icon" data-active="true"></i>
@@ -110,5 +110,73 @@
 						</div>
 					</section>
 
-				{% endif %}
-			{% endblock %}
+					<section id="réservations" class="réservations">
+						<h1>Mes réservations<h1>
+								<div class="contenu">
+									<div class="left">
+										<p style="color:#838080" ;>Départ : Lyon</p>
+										<p style="color:#838080" ;>Arrivée : Paris</p>
+										<p>40€</p>
+										<p>3 places disponibles</p>
+										<p>Toyota Yaris blanche</p>
+										<div class="rules">
+											<div class="picture">
+												<img src="{{ asset('images/cigarette.png') }}">
+												<img src="{{ asset('images/musical-note.png') }}">
+												<img src="{{ asset('images/speak.png') }}">
+											</div>
+											<div class="rule">
+												<p>Pas de cigarette dans la voiture</p>
+												<p>Pas de musique dans la voiture</p>
+												<p>Ne pas parler trop fort</p>
+											</div>
+										</div>
+									</div>
+									<div class="right">
+										<p>07/08/2023</p>
+										<p>Noah</p>
+										<img src="{{ asset('images/user.png') }}">
+										<div class="cardGrade">
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="false"></i>
+										</div>
+										<a href="">
+											<button class="delete">Supprimez la réservation</button>
+										</a>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="voitures" class="voitures">
+							<h1>Mes véhicules</h1>
+							<div class="contenu">
+								<div class="list">
+									<div class="car">
+										<p>Toyota Yaris</p>
+										<a href="" class="edit_car">
+											<button>Modifier</button>
+										</a>
+									</div>
+
+									<div class="car">
+										<p>Renault Clio</p>
+										<a href="" class="edit_car">
+											<button>Modifier</button>
+										</a>
+									</div>
+								</div>
+
+								<div class="carForm">
+									<a href="">
+										<button>Ajouter un véhicule</button>
+									</a>
+								</div>
+							</div>
+						</section>
+
+					{% endif %}
+				{% endblock %}
