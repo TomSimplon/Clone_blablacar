@@ -15,6 +15,7 @@ class CarController extends AbstractController
 {
 
   private $security;
+  private $entityManager;
 
     public function __construct(Security $security) {
         $this->security = $security;
@@ -24,7 +25,8 @@ class CarController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
         $car = new Car();
-        $user = $this->security->getUser();
+
+        $user = $this->getUser();
 
         $form = $this->createForm(CarType::class, $car);
 
@@ -47,6 +49,7 @@ class CarController extends AbstractController
 
         }
         $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('ride/car.html.twig', [
             'form' => $form
         ]);

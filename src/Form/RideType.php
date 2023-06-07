@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Ride;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,18 @@ class RideType extends AbstractType
             ->add('seats')
             ->add('price')
             ->add('date')
-            ->add('rules')
+            ->add('rules', EntityType::class, [
+                'class' => Rule::class,
+                'multiple' => true,
+                'expanded' => true,
+                'choice_label' => 'name',
+                'by_reference' => false,
+                'query_builder' => function (EntityRepository $er) use ($user) {
+                    return $er->createQueryBuilder('r')
+                        ->where('r.author = :user')
+                        ->setParameter('user', $user);
+                },
+            ])
         ;
     }
 

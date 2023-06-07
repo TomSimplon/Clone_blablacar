@@ -6,49 +6,49 @@
 {% endblock %}
 
 {% block body %}
-{% if app.user %}
-	{% include "composants/header.html.twig" %}
-	<section id="ride" class="ride">
-		<form method="post">
-			<h1>Ajouter/modifier une annonce</h1>
+	{% if app.user %}
+		{% include "composants/header.html.twig" %}
+		<section id="ride" class="ride">
+			<form method="post">
+				<h1>Ajouter/modifier une annonce</h1>
 
-			{{ form_start(form) }}
+				{{ form_start(form) }}
 
-			{{ form_label(form.departure, 'Départ') }}
-			{{ form_widget(form.departure) }}
-			{{ form_help(form.departure) }}
-			{{ form_errors(form.departure) }}
+				{{ form_label(form.departure, 'Départ') }}
+				{{ form_widget(form.departure) }}
+				{{ form_help(form.departure) }}
+				{{ form_errors(form.departure) }}
 
-			{{ form_label(form.destination, 'Arrivée') }}
-			{{ form_widget(form.destination) }}
-			{{ form_help(form.destination) }}
-			{{ form_errors(form.destination) }}
+				{{ form_label(form.destination, 'Arrivée') }}
+				{{ form_widget(form.destination) }}
+				{{ form_help(form.destination) }}
+				{{ form_errors(form.destination) }}
 
-			{{ form_label(form.seats, 'Sièges') }}
-			{{ form_widget(form.seats) }}
-			{{ form_help(form.seats) }}
-			{{ form_errors(form.seats) }}
+				{{ form_label(form.seats, 'Sièges') }}
+				{{ form_widget(form.seats) }}
+				{{ form_help(form.seats) }}
+				{{ form_errors(form.seats) }}
 
-			{{ form_label(form.price, 'Prix') }}
-			{{ form_widget(form.price) }}
-			{{ form_help(form.price) }}
-			{{ form_errors(form.price) }}
+				{{ form_label(form.price, 'Prix') }}
+				{{ form_widget(form.price) }}
+				{{ form_help(form.price) }}
+				{{ form_errors(form.price) }}
 
-			{{ form_label(form.date, 'Date') }}
-			{{ form_widget(form.date) }}
-			{{ form_help(form.date) }}
-			{{ form_errors(form.date) }}
+				{{ form_label(form.date, 'Date') }}
+				{{ form_widget(form.date) }}
+				{{ form_help(form.date) }}
+				{{ form_errors(form.date) }}
 
-			{{ form_label(form.rules, 'Règles') }}
-			{{ form_widget(form.rules) }}
-			{{ form_help(form.rules) }}
-			{{ form_errors(form.rules) }}
+				{{ form_label(form.rules, 'Règles') }}
+				{{ form_widget(form.rules) }}
+				{{ form_help(form.rules) }}
+				{{ form_errors(form.rules) }}
 
-			<button type="submit" class="btn">Envoyer</button>
-			{{ form_end(form) }}
-		</form>
-	</section>
+				<button type="submit" class="btn">Envoyer</button>
+				{{ form_end(form) }}
+			</form>
+		</section>
 	{% else %}
-        <p>Vous devez être connecté pour accéder à cette page</p>
-    {% endif %}
+		<p>Vous devez être connecté pour accéder à cette page</p>
+	{% endif %}
 {% endblock %}

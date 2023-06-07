@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Ride;
 use App\Entity\Rule;
+use App\Entity\Car;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,11 +51,23 @@ class RideController extends AbstractController
 
 
 #[Route('/ride/user', name: 'user')]
-    public function user(): Response
+    public function user(EntityManagerInterface $entityManager): Response
     {
+
+        $user = $this->getUser();
+        $cars = $entityManager->getRepository(Car::class)->findBy(['owner' => $user]);
+        $rules = $entityManager->getRepository(Rule::class)->findBy(['author' => $user]);
+        $rides = $entityManager->getRepository(Ride::class)->findBy(['driver' => $user]);
+        // $rulesId = $entityManager->getRepository(Ride::class)->findBy(['rules' => $user]);
+
         $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('ride/user.html.twig', [
             'controller_name' => 'RideController',
+            'cars' => $cars,
+            'rules' => $rules,
+            'rides' => $rides,
+            // 'rulesId' => $rulesId
         ]);
     }
 

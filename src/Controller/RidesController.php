@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ride;
+use App\Entity\Rule;
 use App\Form\RideType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +25,8 @@ class RidesController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
         $ride = new Ride();
-        $user = $this->security->getUser();
+        $user = $this->getUser();
+        $rules = $user ? $entityManagerInterface->getRepository(Rule::class)->findBy(['author' => $user]) : [];
 
         $form = $this->createForm(RideType::class, $ride);
 
@@ -50,7 +52,8 @@ class RidesController extends AbstractController
         
         $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('ride/ride.html.twig', [
-            'form' => $form
+            'form' => $form,
+            'rules' => $rules
         ]);
     }
 

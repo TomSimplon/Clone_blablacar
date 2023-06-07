@@ -43,71 +43,69 @@
 							<img src="{{ asset('images/animal.png') }}">
 						</div>
 						<div class="rule">
-							<div class="règle">
-								<p>J'aime bien discuter quand je me sens à l'aise</p>
-								<a class="edit_rule" href="">Modifier</a>
-							</div>
-
-							<div class="règle">
-								<p>Pas de musique dans la voiture</p>
-								<a class="edit_rule" href="">Modifier</a>
-							</div>
-
-							<div class="règle">
-								<p>Pas de cigarette dans la voiture</p>
-								<a class="edit_rule" href="">Modifier</a>
-							</div>
-
-							<div class="règle">
-								<p>Je peux voyager avec des animaux domestiques</p>
-								<a class="edit_rule" href="">Modifier</a>
-							</div>
+							{% for rule in rules %}
+								<div class="règle">
+									<p>{{ rule.description }}</p>
+									<a class="edit_rule" href="">Modifier</a>
+								</div>
+							{% endfor %}
 						</div>
+					</div>
+					<div class="ruleForm">
+						<a href="{{ path('app_rule') }}">
+							<button>Ajouter des préférences de moyage</button>
+						</a>
 					</div>
 				</section>
 
 				<section id="annonces" class="annonces">
 					<h1>Mes annonces<h1>
-							<div class="contenu">
-								<div class="left">
-									<p style="color:#838080" ;>Départ : Grenoble</p>
-									<p style="color:#838080" ;>Arrivée : Chambéry</p>
-									<p>18€</p>
-									<p>4 places disponibles</p>
-									<p>Peugeot 2008 noir</p>
-									<div class="rules">
-										<div class="picture">
-											<img src="{{ asset('images/cigarette.png') }}">
-											<img src="{{ asset('images/musical-note.png') }}">
-											<img src="{{ asset('images/speak.png') }}">
-										</div>
-										<div class="rule">
-											<p>Pas de cigarette dans la voiture</p>
-											<p>Pas de musique dans la voiture</p>
-											<p>J'aime bien discuter quand je me sens à l'aise</p>
+							{% for ride in rides %}
+								<div class="contenu">
+									<div class="left">
+										<p style="color:#838080" ;>Départ :
+											{{ ride.departure }}</p>
+										<p style="color:#838080" ;>Arrivée :
+											{{ ride.destination }}</p>
+										<p>{{ ride.price }}
+											€</p>
+										<p>{{ ride.seats }}
+											places disponibles</p>
+										<p>Peugeot 2008 noir</p>
+										<div class="rules">
+											<div class="picture">
+												<img src="{{ asset('images/cigarette.png') }}">
+												<img src="{{ asset('images/musical-note.png') }}">
+												<img src="{{ asset('images/speak.png') }}">
+											</div>
+											<div class="rule">
+												<p>Pas de cigarette dans la voiture</p>
+												<p>Pas de musique dans la voiture</p>
+												<p>J'aime bien discuter quand je me sens à l'aise</p>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="right">
-									<p>07/06/2023</p>
-									<p>Christopher</p>
-									<img src="{{ asset('images/user.png') }}">
-									<div class="cardGrade">
-										<i class="fas fa-star icon" data-active="true"></i>
-										<i class="fas fa-star icon" data-active="true"></i>
-										<i class="fas fa-star icon" data-active="true"></i>
-										<i class="fas fa-star icon" data-active="true"></i>
-										<i class="fas fa-star icon" data-active="false"></i>
+									<div class="right">
+										<p>{{ ride.date|date("d/m/Y") }}</p>
+										<p>{{ ride.driver.firstName }}</p>
+										<img src="{{ asset('images/user.png') }}">
+										<div class="cardGrade">
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="true"></i>
+											<i class="fas fa-star icon" data-active="false"></i>
+										</div>
+										<a href="">
+											<button class="edit">Editez votre annonce</button>
+										</a>
+										<a href="">
+											<button class="delete">Supprimez votre annonce</button>
+										</a>
 									</div>
-									<a href="">
-										<button class="edit">Editez votre annonce</button>
-									</a>
-									<a href="">
-										<button class="delete">Supprimez votre annonce</button>
-									</a>
 								</div>
 							</div>
-						</div>
+						{% endfor %}
 					</section>
 
 					<section id="réservations" class="réservations">
@@ -134,7 +132,7 @@
 									</div>
 									<div class="right">
 										<p>07/08/2023</p>
-										<p>Noah</p>
+										<p>Christopher</p>
 										<img src="{{ asset('images/user.png') }}">
 										<div class="cardGrade">
 											<i class="fas fa-star icon" data-active="true"></i>
@@ -155,23 +153,19 @@
 							<h1>Mes véhicules</h1>
 							<div class="contenu">
 								<div class="list">
-									<div class="car">
-										<p>Toyota Yaris</p>
-										<a href="" class="edit_car">
-											<button>Modifier</button>
-										</a>
-									</div>
-
-									<div class="car">
-										<p>Renault Clio</p>
-										<a href="" class="edit_car">
-											<button>Modifier</button>
-										</a>
-									</div>
+									{% for car in cars %}
+										<div class="car">
+											<p>{{ car.brand }}
+												{{ car.model }}</p>
+											<a href="" class="edit_car">
+												<button>Modifier</button>
+											</a>
+										</div>
+									{% endfor %}
 								</div>
 
 								<div class="carForm">
-									<a href="">
+									<a href="{{ path('app_car') }}">
 										<button>Ajouter un véhicule</button>
 									</a>
 								</div>

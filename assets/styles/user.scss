@@ -115,6 +115,23 @@
       }
     }
   }
+
+  .ruleForm {
+      margin-top: 15px;
+
+      a {
+         text-decoration: none;
+
+        button {
+        background-color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+        }
+      }
+  }
 }
 
 #annonces {
@@ -228,6 +245,7 @@
             }
   }
 }
+
 
 #réservations {
   padding: 0;
