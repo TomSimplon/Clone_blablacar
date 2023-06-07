@@ -33,8 +33,6 @@ class RidesController extends AbstractController
 
 				// Condition valide lorsque le formulaire est soumis et valide
         if ($form->isSubmitted() && $form->isValid()) {
-
-          // dd($ride);
             
 						// Persiste les données du formulaire dans l'entité Demo
             $ride = $form->getData();
