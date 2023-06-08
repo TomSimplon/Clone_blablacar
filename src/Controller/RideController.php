@@ -71,31 +71,6 @@ class RideController extends AbstractController
             'rides' => $rides
         ]);
     }
-
-    #[Route('/ride/edit', name: 'user_edit')]
-    public function editUser(Request $request, EntityManagerInterface $entityManager): Response
-    {
-    $user = $this->getUser();
-
-    if (!$user) {
-        return $this->redirectToRoute('app_login'); 
-    }
-
-    $form = $this->createForm(UserType::class, $user);
-
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-        $entityManager->flush();
-
-        return $this->redirectToRoute('user');
-    }
-
-    return $this->render('ride/UserForm.html.twig', [
-        'form' => $form->createView(),
-    ]);
-}
-
     
     #[Route('/search', name: 'search')]
     public function search(EntityManagerInterface $entityManager, Request $request): Response

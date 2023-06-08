@@ -46,7 +46,7 @@
 							{% for rule in rules %}
 								<div class="règle">
 									<p>{{ rule.description }}</p>
-									<a class="edit_rule" href="">Modifier</a>
+									<a class="edit_rule" href="{{ path('rule_edit', {'id': rule.id}) }}">Modifier</a>
 								</div>
 							{% endfor %}
 						</div>

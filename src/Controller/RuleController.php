@@ -52,4 +52,26 @@ class RuleController extends AbstractController
             'form' => $form
         ]);
     }
+
+    #[Route('/rule/edit/{id}', name: 'rule_edit')]
+    public function editRule(Rule $rule, Request $request, EntityManagerInterface $entityManager): Response
+    {
+    if ($rule->getAuthor() !== $this->getUser()) {
+        throw $this->createAccessDeniedException('Vous ne pouvez pas modifier cette règle');
+    }
+
+    $form = $this->createForm(RuleType::class, $rule);
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->flush();
+
+        return $this->redirectToRoute('user');
+    }
+
+    return $this->render('ride/rule.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
 }
