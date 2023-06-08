@@ -50,3 +50,15 @@
     }
   }
 }
+
+// Partie Responsive
+@media screen and (max-width: 640px) {
+   .car {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   }
+
+}

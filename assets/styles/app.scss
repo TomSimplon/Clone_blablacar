@@ -52,10 +52,21 @@ body {
   padding: 1rem 2rem;
 }
 
+
 .login-buttons {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+
+  @media screen and (max-width: 640px) {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
 
   .btn {
   margin: 0 10px;
@@ -71,6 +82,18 @@ body {
 }
 }
 }
+
+// // Partie Responsive
+// @media screen and (max-width: 640px) {
+//    .login-buttons {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
+//    }
+
+// }
 
 
 
