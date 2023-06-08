@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Ride;
+use App\Entity\Rule;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;

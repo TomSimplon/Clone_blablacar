@@ -26,8 +26,6 @@ class RidesController extends AbstractController
     {
         $ride = new Ride();
         $user = $this->getUser();
-
-        // $form = $this->createForm(RideType::class, $ride);
         
         $form = $this->createForm(RideType::class, $ride, [
         'user' => $this->getUser(),
@@ -82,7 +80,10 @@ public function delete(Ride $ride, EntityManagerInterface $entityManager): Respo
 #[Route('/ride/edit/{id}', name: 'ride_edit')]
 public function edit(Ride $ride, Request $request, EntityManagerInterface $entityManager): Response
 {
-    $form = $this->createForm(RideType::class, $ride);
+    $form = $this->createForm(RideType::class, $ride, [
+        'user' => $this->getUser(),
+         ]);
+
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {

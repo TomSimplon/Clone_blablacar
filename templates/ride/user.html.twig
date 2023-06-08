@@ -34,13 +34,13 @@
 		</section>
 
 		<section id="règles" class="règles">
-			<h1>A propos de vous<h1>
+			<h1>Préférences de voyage<h1>
 					<div class="rules">
 						<div class="picture">
-							<img src="{{ asset('images/speak.png') }}">
-							<img src="{{ asset('images/musical-note.png') }}">
 							<img src="{{ asset('images/cigarette.png') }}">
+							<img src="{{ asset('images/speak.png') }}">
 							<img src="{{ asset('images/animal.png') }}">
+							<img src="{{ asset('images/musical-note.png') }}">
 						</div>
 						<div class="rule">
 							{% for rule in rules %}
@@ -76,12 +76,13 @@
 											<div class="picture">
 												<img src="{{ asset('images/cigarette.png') }}">
 												<img src="{{ asset('images/musical-note.png') }}">
+												<img src="{{ asset('images/animal.png') }}">
 												<img src="{{ asset('images/speak.png') }}">
 											</div>
 											<div class="rule">
-												<p>Pas de cigarette dans la voiture</p>
-												<p>Pas de musique dans la voiture</p>
-												<p>J'aime bien discuter quand je me sens à l'aise</p>
+												{% for rule in ride.rules %}
+													<p>{{rule.description}}</p>
+												{% endfor %}
 											</div>
 										</div>
 									</div>
