@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="btn">
-				<a class="edit_infos" href="{{ path('app_user') }}">Modifier les informations personnelles</a>
+				<a class="edit_infos" href="{{ path('user_edit') }}">Modifier les informations personnelles</a>
 				<a class="edit_ride" href="{{ path('app_ride') }}">Ajouter une annonce</a>
 				<a class="deconnexion" href="{{ path('app_logout') }}">Se déconnecter</a>
 			</div>
@@ -97,10 +97,10 @@
 											<i class="fas fa-star icon" data-active="true"></i>
 											<i class="fas fa-star icon" data-active="false"></i>
 										</div>
-										<a href="">
+										<a href="{{ path('ride_edit', {'id': ride.id}) }}">
 											<button class="edit">Editez votre annonce</button>
 										</a>
-										<a href="">
+										<a href="{{ path('ride_delete', {'id': ride.id}) }}">
 											<button class="delete">Supprimez votre annonce</button>
 										</a>
 									</div>

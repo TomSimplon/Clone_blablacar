@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Ride;
 use App\Entity\Rule;
 use App\Entity\Car;
+use App\Entity\User;
+use App\Form\UserType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -69,6 +71,30 @@ class RideController extends AbstractController
             'rides' => $rides
         ]);
     }
+
+    #[Route('/ride/edit', name: 'user_edit')]
+    public function editUser(Request $request, EntityManagerInterface $entityManager): Response
+    {
+    $user = $this->getUser();
+
+    if (!$user) {
+        return $this->redirectToRoute('app_login'); 
+    }
+
+    $form = $this->createForm(UserType::class, $user);
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->flush();
+
+        return $this->redirectToRoute('user');
+    }
+
+    return $this->render('ride/UserForm.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
 
     
     #[Route('/search', name: 'search')]
