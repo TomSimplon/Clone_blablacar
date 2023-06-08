@@ -9,8 +9,8 @@
 			</div>
 		</div>
 		<div class="droite">
-			<form class="search-form">
-				<input type="text" placeholder="Rechercher...">
+			<form class="search-form" action="{{ path('search') }}" method="get">
+				<input name="query" type="text" placeholder="Rechercher...">
 				<button type="submit">
 					<strong>OK</strong>
 				</button>

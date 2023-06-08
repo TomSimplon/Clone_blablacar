@@ -26,9 +26,12 @@ class RidesController extends AbstractController
     {
         $ride = new Ride();
         $user = $this->getUser();
-        $rules = $user ? $entityManagerInterface->getRepository(Rule::class)->findBy(['author' => $user]) : [];
 
-        $form = $this->createForm(RideType::class, $ride);
+        // $form = $this->createForm(RideType::class, $ride);
+        
+        $form = $this->createForm(RideType::class, $ride, [
+        'user' => $this->getUser(),
+         ]);
 
 				// Ecoute la soumission du formulaire
 				$form->handleRequest($request);
@@ -53,7 +56,6 @@ class RidesController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('ride/ride.html.twig', [
             'form' => $form,
-            'rules' => $rules
         ]);
     }
 

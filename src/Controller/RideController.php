@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class RideController extends AbstractController
 {
@@ -58,7 +59,6 @@ class RideController extends AbstractController
         $cars = $entityManager->getRepository(Car::class)->findBy(['owner' => $user]);
         $rules = $entityManager->getRepository(Rule::class)->findBy(['author' => $user]);
         $rides = $entityManager->getRepository(Ride::class)->findBy(['driver' => $user]);
-        // $rulesId = $entityManager->getRepository(Ride::class)->findBy(['rules' => $user]);
 
         $this->denyAccessUnlessGranted('ROLE_USER');
 
@@ -66,10 +66,30 @@ class RideController extends AbstractController
             'controller_name' => 'RideController',
             'cars' => $cars,
             'rules' => $rules,
-            'rides' => $rides,
-            // 'rulesId' => $rulesId
+            'rides' => $rides
         ]);
     }
+
+    
+    #[Route('/search', name: 'search')]
+    public function search(EntityManagerInterface $entityManager, Request $request): Response
+    {
+    $query = $request->query->get('query');
+
+    $ridesRepository = $entityManager->getRepository(Ride::class);
+    $rides = $ridesRepository->createQueryBuilder('r')
+        ->where('r.departure LIKE :query')
+        ->orWhere('r.destination LIKE :query')
+        ->setParameter('query', '%' . $query . '%')
+        ->getQuery()
+        ->getResult();
+
+    return $this->render('ride/annonce.html.twig', [
+        'controller_name' => 'RideController',
+        'rides' => $rides,
+        'query' => $query // ajoutez cette ligne
+    ]);
+   }
 
     
 }

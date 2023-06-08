@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Ride;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,6 +13,9 @@ class RideType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        $user = $options['user'];
+
         $builder
             ->add('departure')
             ->add('destination')
@@ -38,6 +42,7 @@ class RideType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Ride::class,
+            'user' => null
         ]);
     }
 }

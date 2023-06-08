@@ -7,6 +7,15 @@
 	{%include "composants/header.html.twig"%}
 
 	<section class="page">
+		{% if query is defined %}
+			<h2 style="color: {{ rides|length > 0 ? 'black' }}">
+				{% if rides|length > 0 %}
+					Résultat pour "{{ query }}"
+				{% else %}
+					Aucun résultat ne correspond à votre recherche.
+				{% endif %}
+			</h2>
+		{% endif %}
 		{% for ride in rides %}
 			<div class="block">
 				<h2>{{ ride.date|date("m/d/Y") }}</h2>
@@ -38,5 +47,6 @@
 				</div>
 			</div>
 		{% endfor %}
+
 	</section>
 {% endblock %}
