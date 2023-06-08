@@ -158,7 +158,7 @@
 										<div class="car">
 											<p>{{ car.brand }}
 												{{ car.model }}</p>
-											<a href="" class="edit_car">
+											<a href="{{ path('car_edit', {'id': car.id}) }}" class="edit_car">
 												<button>Modifier</button>
 											</a>
 										</div>

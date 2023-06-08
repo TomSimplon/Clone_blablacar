@@ -73,5 +73,5 @@ class RuleController extends AbstractController
     return $this->render('ride/rule.html.twig', [
         'form' => $form->createView(),
     ]);
-}
+   }
 }
