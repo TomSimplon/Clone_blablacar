@@ -61,7 +61,7 @@
 
                 .cardGrade {
                 display: flex; 
-                align-self: flex-start; 
+                align-items: flex-start; 
                 margin-top: 20px;
   
                 .icon[data-active=true] {
@@ -107,8 +107,16 @@
             flex-direction: column;
 
             .right {
-                align-items: flex-start;
+                align-items: center;
                 padding-left: 0px;
+            }
+
+            .cardGrade {
+                align-items: center;
+            }
+
+            .reserve {
+                align-items: center;
             }
         }
     }
