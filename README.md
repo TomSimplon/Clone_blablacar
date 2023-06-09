@@ -8,7 +8,7 @@
 
 - Démarrer le projet :
 ```shell
-mv .env.dist .env #Pensez à renseigner votre base de données dans le fichier"
+mv .env.dist .env #Pensez à renseigner votre base de données dans le fichier
 ```
 
 ```shell
