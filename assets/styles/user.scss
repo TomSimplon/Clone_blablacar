@@ -415,5 +415,63 @@
   }
 }
 
+// Partie Responsive
+@media screen and (max-width: 640px) {
+    #infos {
+      .character {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+         flex-direction: column;
+         align-items: center;
+        }
+    }
+
+    #règles {
+      .rules {
+        margin-right: 50px;
+      }
+
+      .ruleForm {
+        text-align: center;
+      }
+    }
+
+    #annonces {
+      .contenu {
+            flex-direction: column;
+
+            .right {
+                align-items: flex-start;
+                padding-left: 0px;
+            }
+      }
+    }
+
+    #réservations {
+      .contenu {
+            flex-direction: column;
+
+            .right {
+                align-items: flex-start;
+                padding-left: 0px;
+            }
+      }
+    }
+
+    #voitures {
+      .contenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .carForm {
+        margin-left: 0px;
+      }
+    }
+}
 
 

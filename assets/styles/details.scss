@@ -100,4 +100,18 @@
         }
     }
 
+    // Partie Responsive
+@media screen and (max-width: 640px) {
+    .details {
+        .contenu {
+            flex-direction: column;
+
+            .right {
+                align-items: flex-start;
+                padding-left: 0px;
+            }
+        }
+    }
+}
+
     

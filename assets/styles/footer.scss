@@ -40,4 +40,11 @@ footer {
   }
 }
 
+// Partie Responsive
+@media screen and (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+  }
+}
+
 

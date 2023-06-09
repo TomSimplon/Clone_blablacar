@@ -6,7 +6,7 @@
 {% block body %}
 	{%include "composants/header.html.twig"%}
 
-	<section class="page">
+	<section id="page" class="page">
 		{% if query is defined %}
 			<h2 style="color: {{ rides|length > 0 ? 'black' }}">
 				{% if rides|length > 0 %}

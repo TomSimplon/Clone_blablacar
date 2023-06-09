@@ -10,7 +10,7 @@ body {
     background-size: cover;
     background-position: center;
 
-    .page {
+    #page {
     background-color: #eeeded;
     max-width: 1080px;
     margin: 0 auto;
@@ -31,14 +31,6 @@ body {
             background-color: white;
             display: flex;
             justify-content: space-between;
-
-            @media screen and (max-width: 640px) {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                }
             
             .left {
                 display: flex;
@@ -105,5 +97,27 @@ body {
         }
     }
   }
+}
+
+// Partie Responsive
+@media screen and (max-width: 640px) {
+
+    
+    .contenu {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .left {
+            align-items: flex-start;
+
+            .user {
+                padding-left: 10px;
+                p {
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
 }
 
